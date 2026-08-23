@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MAAL'S — Restaurante & Lounge</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+:root{--gold:#d8aa4a;--gold2:#f0cc78;--black:#070707;--panel:#11100e;--line:#765722;--muted:#b9b09e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#060606;color:#fff;font-family:Montserrat,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background:radial-gradient(circle at 20% 0,#a8761d,transparent 28%),radial-gradient(circle at 100% 70%,#5e3d0d,transparent 30%)}
+header{position:sticky;top:0;z-index:20;height:72px;display:flex;align-items:center;justify-content:space-between;padding:10px 18px;background:rgba(5,5,5,.94);border-bottom:1px solid #5d461c;backdrop-filter:blur(14px)}
+.brand{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-size:27px;letter-spacing:5px}.brand small{display:block;font-family:Montserrat;font-size:8px;letter-spacing:2px;text-align:center;color:#bcae8b;margin-top:-4px}
+.menuBtn{border:1px solid #6f531e;background:#0d0d0d;color:var(--gold2);width:42px;height:42px;border-radius:12px;font-size:21px}
+main{max-width:760px;margin:auto;padding:0 14px 90px}
+.hero{margin:18px 0 20px;min-height:430px;border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.86)),url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=85') center/cover}
+.heroContent{position:absolute;inset:auto 20px 25px;text-align:center}.hero h1{font:700 62px "Cormorant Garamond",serif;letter-spacing:7px;color:var(--gold2);margin:0}.hero p{font:italic 21px "Cormorant Garamond",serif;margin:5px 0 18px}.hero .gold{color:var(--gold2)}
+.kicker{font-size:10px;letter-spacing:3px;color:#d7c59c}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.cat{min-height:118px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#17130d,#0b0b0b);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;cursor:pointer}.cat .ico{font-size:29px;margin-bottom:8px}.cat b{font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--gold2)}.cat span{font-size:9px;color:#a99d83;letter-spacing:1.5px;margin-top:3px}
+.title{font:700 38px "Cormorant Garamond",serif;text-align:center;color:var(--gold2);letter-spacing:2px;margin:24px 0 5px}.subtitle{text-align:center;color:var(--muted);font-size:11px;margin-bottom:20px}.back{margin-top:18px;border:1px solid var(--line);background:#0e0e0e;color:var(--gold2);border-radius:10px;padding:9px 13px}
+.section{font:600 20px "Cormorant Garamond",serif;color:var(--gold2);letter-spacing:1px;border-bottom:1px solid #453414;padding:14px 0 7px;margin-top:20px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.card{border:1px solid #4d3916;border-radius:15px;overflow:hidden;background:linear-gradient(150deg,#15120d,#0a0a0a)}.card img{width:100%;height:145px;display:block;object-fit:cover}.cardBody{padding:10px 11px 12px}.name{font:600 20px "Cormorant Garamond",serif}.desc{font-size:10px;line-height:1.45;color:var(--muted);margin-top:4px}.bottom{display:flex;justify-content:space-between;gap:8px;align-items:end;margin-top:9px}.price{color:var(--gold2);font-weight:600;font-size:14px}.tag{font-size:8px;color:#070707;background:var(--gold2);border-radius:20px;padding:4px 7px;font-weight:700}
+.list{display:grid;gap:9px}.list .card{display:grid;grid-template-columns:95px 1fr}.list .card img{height:100%;min-height:95px}.list .cardBody{display:flex;flex-direction:column;justify-content:center}
+.cocktail img{height:185px}
+.navBottom{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(8,8,8,.96);border-top:1px solid #5b441b;display:flex;justify-content:center;padding:10px}.navBottom button{border:1px solid #624a1b;background:#111;color:var(--gold2);border-radius:10px;padding:8px 15px}
+.page{display:none}.page.active{display:block}
+footer{text-align:center;color:#897c62;font-size:9px;letter-spacing:2px;margin-top:28px}
+@media(max-width:520px){.hero{min-height:390px}.hero h1{font-size:52px}.cards{grid-template-columns:1fr 1fr}.card img{height:130px}.name{font-size:18px}.title{font-size:34px}}
+</style>
+</head>
+<body>
+<header><button class="menuBtn" onclick="home()">⌂</button><div class="brand">MAAL'S<small>RESTAURANTE & LOUNGE</small></div><button class="menuBtn" onclick="home()">☰</button></header>
+<main>
+<section id="home" class="page active">
+<div class="hero"><div class="heroContent"><div class="kicker">BEM-VINDO À</div><h1>MAAL'S</h1><p>Sabores que marcam.<br><span class="gold">Momentos que ficam.</span></p></div></div>
+<div class="grid">
+<div class="cat" onclick="show('entradas')"><div class="ico">🥟</div><b>Entradas</b><span>PARA COMEÇAR</span></div>
+<div class="cat" onclick="show('pratos')"><div class="ico">🥩</div><b>Pratos Principais</b><span>DA CASA</span></div>
+<div class="cat" onclick="show('tostas')"><div class="ico">🥪</div><b>Tostas & Sandes</b><span>RÁPIDO & SABOROSO</span></div>
+<div class="cat" onclick="show('extras')"><div class="ico">🍟</div><b>Extras</b><span>PARA ACOMPANHAR</span></div>
+<div class="cat" onclick="show('cocktails')"><div class="ico">🍸</div><b>Cocktails</b><span>SIGNATURE</span></div>
+<div class="cat" onclick="show('spirits')"><div class="ico">🥃</div><b>Premium Spirits</b><span>POR DOSE</span></div>
+<div class="cat" onclick="show('licores')"><div class="ico">🍷</div><b>Licores & Martinis</b><span>SELEÇÃO</span></div>
+<div class="cat" onclick="show('garrafas')"><div class="ico">🍾</div><b>Garrafas</b><span>SUNSET AFFAIR</span></div>
+</div>
+<footer>MAAL'S — MAIS QUE UM RESTAURANTE, UM ESTILO DE VIDA.</footer>
+</section>
+
+<div id="pages"></div>
+</main>
+<div class="navBottom"><button onclick="home()">⌂ Página Inicial</button></div>
+<script>
+const imgs={
+food1:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85",
+food2:"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=85",
+meat:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85",
+steak:"https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=85",
+sand:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=85",
+fries:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=85",
+cocktail:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=85",
+mojito:"https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=900&q=85",
+bottle:"https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=900&q=85"
+};
+const sections={
+entradas:{title:"ENTRADAS",sub:"Para começar bem",items:[
+["Chamuças","Sem acompanhamento","2,00€",imgs.food1],["Pica-Pau","Cesta de pão","12,00€",imgs.meat],["Moelas","Cesta de pão","7,00€",imgs.meat],["Mix de Salgados","2 chamuças + 2 rissóis + 2 croquetes","10,50€",imgs.food2],["Gambas à Guilho","Cesta de pão","13,95€",imgs.food2],["Asas de Frango","Batata","7,50€",imgs.meat]]},
+pratos:{title:"PRATOS PRINCIPAIS",sub:"Sabores da casa",items:[
+["Bife Molho Cervejeira","Arroz + Batata","17,50€",imgs.steak],["Bife Molho Cogumelos","Arroz + Batata","17,50€",imgs.steak],["Bitoque à MAAL'S","Arroz + Batata + Ovo","17,00€",imgs.meat],["Grelhada Mista","Arroz + Batata","A DEFINIR",imgs.meat],["Picanha","Arroz + Feijão","16,60€",imgs.steak],["Picanha c/ Alho","Arroz + Feijão","17,00€",imgs.steak],["Meio Frango","Batata + Salada","A DEFINIR",imgs.meat],["1 Frango","Batata + Salada","A DEFINIR",imgs.meat]]},
+tostas:{title:"TOSTAS & SANDES",sub:"Simples, rápidas e cheias de sabor",items:[
+["Tosta de Frango","Batata","8,00€",imgs.sand],["Tosta Mista","Batata","7,00€",imgs.sand],["Bifana à MAAL'S","Sem acompanhamento","5,50€",imgs.sand]]},
+extras:{title:"EXTRAS",sub:"Para completar o prato",items:[
+["Batata Frita","","3,50€",imgs.fries],["Batata Frita Doce","","4,50€",imgs.fries],["Arroz","","4,00€",imgs.food2],["Feijão","","4,00€",imgs.food2],["Salada","","4,00€",imgs.food2]]},
+cocktails:{title:"COCKTAILS",sub:"Signature · Premium · Unforgettable",items:[
+["St-Germain Spritz","St-Germain, espumante, água com gás","8€",imgs.cocktail],["Dewar's Sour","Whisky Dewar's, lima, açúcar, clara de ovo","8€",imgs.cocktail],["Bombay Sour","Bombay Sapphire, lima, xarope de açúcar","8€",imgs.cocktail],["Bacardi Mojito","Rum Bacardi, lima, hortelã, água com gás","7,50€",imgs.mojito],["Bacardi Mojito Maracujá","Rum Bacardi, lima, hortelã, maracujá","8€",imgs.mojito],["Bacardi Daiquiri","Bacardi Carta Blanca, lima, açúcar","7€",imgs.cocktail],["Cazadores Margarita","Tequila Cazadores, triple sec, lima","8€",imgs.cocktail],["Bacardi Piña Colada","Rum Bacardi, coco, ananás, açúcar","8€",imgs.cocktail],["Eristoff Espresso Martini","Eristoff, licor de café, espresso","9€",imgs.cocktail],["Dewar's 12 Anos Old Fashioned","Dewar's 12 Anos, xarope de açúcar, angostura","10€",imgs.cocktail],["Sapphire Negroni","Bombay Sapphire, Martini Rosso, bitter","9€",imgs.cocktail],["Long Island Ice Tea","Eristoff, Bacardi, Bombay, tequila, triple sec, lima","10€",imgs.cocktail],["Caipirinha","Cachaça, lima, açúcar","7€",imgs.cocktail],["Caipirinha Maracujá","Cachaça, lima, maracujá, açúcar","7,50€",imgs.cocktail],["Sex On The Beach","Vodka, pêssego, laranja, arando","8€",imgs.cocktail],["Beirão Sour","Beirão, lima, xarope de açúcar","8€",imgs.cocktail],["Espresso Amarula","Eristoff, Amarula, café","8€",imgs.cocktail],["Aperol Spritz","Aperol, espumante, água com gás","8€",imgs.cocktail]]},
+spirits:{title:"PREMIUM SPIRITS",sub:"Seleção premium · por dose",items:[
+["Vodkas","Grey Goose · 42 Below · Eristoff Brut · Eristoff Black · Cîroc","10€ · 9€ · 8€ · 8,50€ · 12€",imgs.bottle],
+["Whiskies","Dewar's White Label · Dewar's 12 Anos · Aberfeldy 12 Anos · Jack Daniel's · Honey","7,50€ · 9,50€ · 15€ · 10€ · 10€",imgs.bottle],
+["Gins","Bombay Premier Cru · Sapphire · Pressé · Bramble · Oxley · Genever · Bulldog","10€ · 8,50€ · 9€ · 9€ · 11€ · 9,50€ · 11,50€",imgs.bottle],
+["Rums & Tequilas","Bacardi Carta Blanca · Ocho · Santa Teresa 1796 · Diplomático · Cazadores · Patrón","8€ · 12€ · 17€ · 16€ · 8€ · 10€–12€",imgs.bottle]]},
+licores:{title:"LICORES & MARTINIS",sub:"Seleção",items:[
+["Licor Beirão","","70€",imgs.bottle],["Malibu","","70€",imgs.bottle],["Drambuie","","70€",imgs.bottle],["Martini Bianco","","60€",imgs.bottle],["Martini Rosso","","60€",imgs.bottle],["Martini Mimosa","","60€",imgs.bottle]]},
+garrafas:{title:"GARRAFAS",sub:"Sunset Affair · bottle service",items:[
+["Champagnes","Moët & Chandon Ice · Brut · Bellini","120€ · 100€ · 60€",imgs.bottle],["Vodkas","Smirnoff · Grey Goose · Absolut","80€ · 90€ · 80€",imgs.bottle],["Whiskies","Black Label · Red Label · Jack Daniel's · Jameson · Famous Grouse","110€ · 80€ · 100€ · 90€ · 80€",imgs.bottle],["Gins","Hendrick's · Tanqueray · Gordon Pink","120€ · 90€ · 80€",imgs.bottle],["Licores & Martinis","Licor Beirão · Malibu · Drambuie · Martini Bianco · Martini Rosso · Martini Mimosa","70€ · 70€ · 70€ · 60€ · 60€ · 60€",imgs.bottle]]}
+};
+function render(k){const s=sections[k];const grid=k==="cocktails"?"cards":"list";return `<section id="${k}" class="page"><button class="back" onclick="home()">← Voltar</button><h2 class="title">${s.title}</h2><div class="subtitle">${s.sub}</div><div class="${grid}">${s.items.map((x,i)=>`<article class="card ${k==='cocktails'?'cocktail':''}"><img src="${x[3]}" loading="lazy"><div class="cardBody"><div class="name">${x[0]}</div><div class="desc">${x[1]}</div><div class="bottom">${i===0&&['pratos','cocktails'].includes(k)?'<span class="tag">DESTAQUE</span>':''}<span class="price">${x[2]}</span></div></div></article>`).join("")}</div></section>`}
+document.getElementById("pages").innerHTML=Object.keys(sections).map(render).join("");
+function show(id){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active");scrollTo(0,0)}
+function home(){show("home")}
+</script>
+</body>
+</html>
